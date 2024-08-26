@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4iwonorfkyof"]
+
+[ext_resource type="Texture2D" uid="uid://b7cj6hitpe11v" path="res://imagenes/naves/BlueShips.png" id="1_21g1t"]
+[ext_resource type="Texture2D" uid="uid://bueumd67epnhu" path="res://imagenes/naves/RedShips.png" id="2_jop1t"]
+
+[node name="Main" type="Node2D"]
+
+[node name="BlueShips" type="Sprite2D" parent="."]
+position = Vector2(440.5, 271.5)
+scale = Vector2(2.12188, 1.54062)
+texture = ExtResource("1_21g1t")
+
+[node name="RedShips" type="Sprite2D" parent="."]
+position = Vector2(1069, 250)
+scale = Vector2(1.675, 1.575)
+texture = ExtResource("2_jop1t")

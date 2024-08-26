@@ -1,0 +1,389 @@
+[gd_scene load_steps=8 format=3 uid="uid://cv77vp8eum0vd"]
+
+[ext_resource type="Script" path="res://Game/Levels/Level.gd" id="1_wexrd"]
+[ext_resource type="PackedScene" uid="uid://b34uuyrxrse85" path="res://objects/Enemy/Enemy.tscn" id="2_8w4e7"]
+[ext_resource type="PackedScene" uid="uid://dtkrlnfduty8j" path="res://Game/Players/Player.tscn" id="3_vori0"]
+[ext_resource type="Script" path="res://Game/Levels/Camera2D.gd" id="4_1i2na"]
+[ext_resource type="Texture2D" uid="uid://cwbq42n37pb5c" path="res://imagenes/background/starfield.png" id="5_px84p"]
+[ext_resource type="PackedScene" uid="uid://b1r8e0w5k5njo" path="res://Game/HUD/hud.tscn" id="6_nluhc"]
+[ext_resource type="Texture2D" uid="uid://bh1ycunctgsxx" path="res://imagenes/Asteroides.png" id="7_c4ap1"]
+
+[node name="Levels" type="Node2D"]
+script = ExtResource("1_wexrd")
+
+[node name="BackGround" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(800, 500)
+offset_left = -657.0
+offset_top = -4677.0
+offset_right = 1909.0
+offset_bottom = 1076.0
+color = Color(0, 0, 0, 1)
+
+[node name="FinalBoss" parent="." instance=ExtResource("2_8w4e7")]
+position = Vector2(519, -4481)
+
+[node name="ZOrder" type="Node2D" parent="."]
+position = Vector2(1, 1)
+
+[node name="HUD" type="Control" parent="ZOrder"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 795.0
+offset_bottom = 504.0
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("3_vori0")]
+position = Vector2(384, 417)
+
+[node name="Camera" type="Camera2D" parent="Player"]
+position = Vector2(19, -167)
+script = ExtResource("4_1i2na")
+
+[node name="Hud" parent="Player/Camera" instance=ExtResource("6_nluhc")]
+custom_minimum_size = Vector2(790, 0)
+offset_left = -400.0
+offset_top = -249.0
+offset_right = 400.0
+offset_bottom = -206.0
+
+[node name="Starfield" type="Sprite2D" parent="."]
+position = Vector2(628, 763)
+scale = Vector2(1.09625, 0.986689)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield"]
+position = Vector2(-1.49814, -2026.11)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield"]
+position = Vector2(4.49435, -2439.67)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield/Starfield5"]
+position = Vector2(10.9725, -2452.28)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield5/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield5/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield5/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield5/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield6" type="Sprite2D" parent="Starfield"]
+position = Vector2(705.618, 35.673)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield6"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield6"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield6"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield6"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield/Starfield6"]
+position = Vector2(10.9725, -2452.28)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield6/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield6/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield6/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield6/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield7" type="Sprite2D" parent="Starfield"]
+position = Vector2(-772.534, -3361.13)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield7"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield7"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield7"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield7"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield/Starfield7"]
+position = Vector2(10.9725, -2452.28)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield7/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield7/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield7/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield7/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield8" type="Sprite2D" parent="Starfield"]
+position = Vector2(826.467, -3489.31)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield8"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield8"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield8"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield8"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield/Starfield8"]
+position = Vector2(10.9725, -2452.28)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield8/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield8/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield8/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield8/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield9" type="Sprite2D" parent="Starfield"]
+position = Vector2(-797.503, 508.492)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield9"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield9"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield9"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield9"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield5" type="Sprite2D" parent="Starfield/Starfield9"]
+position = Vector2(10.9725, -2452.28)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield/Starfield9/Starfield5"]
+position = Vector2(-0.49939, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield2" type="Sprite2D" parent="Starfield/Starfield9/Starfield5"]
+position = Vector2(4.49438, -1041.77)
+scale = Vector2(1.0025, 0.683855)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield" type="Sprite2D" parent="Starfield/Starfield9/Starfield5"]
+position = Vector2(1.49811, -556.862)
+scale = Vector2(1.00125, 0.826955)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield4" type="Sprite2D" parent="Starfield/Starfield9/Starfield5"]
+position = Vector2(5.49312, -2009.18)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Starfield3" type="Sprite2D" parent="Starfield"]
+position = Vector2(-0.499359, -1513.06)
+scale = Vector2(1.00375, 0.821994)
+texture = ExtResource("5_px84p")
+
+[node name="Enemies3" parent="." instance=ExtResource("2_8w4e7")]
+position = Vector2(256, -797)
+
+[node name="Enemies2" parent="." instance=ExtResource("2_8w4e7")]
+position = Vector2(615, -404)
+
+[node name="Enemies4" parent="." instance=ExtResource("2_8w4e7")]
+position = Vector2(128, -302)
+
+[node name="Enemies" parent="." instance=ExtResource("2_8w4e7")]
+position = Vector2(391, 50)
+
+[node name="Asteroides" type="Sprite2D" parent="."]
+position = Vector2(-301, 565)
+rotation = 1.5708
+scale = Vector2(1.11892, 1.24842)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides5" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-1050.12, -1156.66)
+scale = Vector2(0.801012, 1.08813)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-548.743, -1122.22)
+scale = Vector2(1, 1.21753)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides2" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-1099.27, -46.4586)
+rotation = -3.14159
+scale = Vector2(1.21753, 1.21753)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides4" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-475.458, -63.2799)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides3" type="Sprite2D" parent="Asteroides"]
+position = Vector2(46.4732, -1077.36)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides6" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-2603.89, -1172.74)
+scale = Vector2(0.801012, 1.08813)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides7" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-2098.45, -1172.68)
+scale = Vector2(1, 1.21753)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides8" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-2479.17, -1.60193)
+rotation = -3.14159
+scale = Vector2(1.21753, 1.21753)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides9" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-1799.95, -75.295)
+texture = ExtResource("7_c4ap1")
+
+[node name="Asteroides10" type="Sprite2D" parent="Asteroides"]
+position = Vector2(-1512.17, -1150.25)
+texture = ExtResource("7_c4ap1")

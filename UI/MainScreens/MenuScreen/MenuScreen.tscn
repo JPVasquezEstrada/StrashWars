@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhy5kafs2evcm"]
+
+[ext_resource type="Script" path="res://UI/MainScreens/MenuScreen/MenuScreen.gd" id="1_tqkaf"]
+[ext_resource type="FontFile" uid="uid://crpknbyywqoag" path="res://UI/TextureLetter/Starjout.ttf" id="2_ncdlr"]
+[ext_resource type="Texture2D" uid="uid://cwbq42n37pb5c" path="res://imagenes/background/starfield.png" id="2_wyplj"]
+[ext_resource type="Texture2D" uid="uid://ku8v2gqbptyv" path="res://UI/Buttons/buttonYellow.png" id="3_8opns"]
+[ext_resource type="Texture2D" uid="uid://d0fiq58vetnmn" path="res://UI/Buttons/buttonBlue.png" id="4_igo23"]
+[ext_resource type="Texture2D" uid="uid://cdyku2lf2i60u" path="res://UI/Buttons/buttonRed.png" id="5_vbm7o"]
+[ext_resource type="AudioStream" uid="uid://bvxsfqm6r6gdq" path="res://Sonidos/HistorySound/menusound.wav" id="6_3f8g3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5kxl0"]
+line_spacing = 6.0
+font = ExtResource("2_ncdlr")
+font_size = 64
+font_color = Color(1, 1, 0.431373, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7c0wg"]
+font = ExtResource("2_ncdlr")
+font_size = 32
+font_color = Color(0.996078, 0.996078, 0.996078, 1)
+
+[node name="MenuScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_tqkaf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Fondo" type="Sprite2D" parent="."]
+position = Vector2(402, 228)
+texture = ExtResource("2_wyplj")
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+layout_mode = 2
+theme_override_constants/separation = 46
+
+[node name="Tittle" type="Label" parent="Center/VBox"]
+custom_minimum_size = Vector2(800, 40)
+layout_mode = 2
+size_flags_vertical = 0
+text = "Strash wars "
+label_settings = SubResource("LabelSettings_5kxl0")
+horizontal_alignment = 1
+
+[node name="Play" type="TextureButton" parent="Center/VBox"]
+self_modulate = Color(0.219608, 0.180392, 0.117647, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_8opns")
+texture_pressed = ExtResource("4_igo23")
+texture_hover = ExtResource("5_vbm7o")
+stretch_mode = 5
+
+[node name="PlayText" type="Label" parent="Center/VBox/Play"]
+modulate = Color(0.611765, 0.603922, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "play"
+label_settings = SubResource("LabelSettings_7c0wg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credits" type="TextureButton" parent="Center/VBox"]
+self_modulate = Color(0.219608, 0.180392, 0.117647, 1)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("3_8opns")
+texture_pressed = ExtResource("4_igo23")
+texture_hover = ExtResource("5_vbm7o")
+stretch_mode = 5
+
+[node name="CreditText" type="Label" parent="Center/VBox/Credits"]
+modulate = Color(0.611765, 0.603922, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -6.5
+offset_bottom = 6.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "creditos"
+label_settings = SubResource("LabelSettings_7c0wg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuMusic" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2, 3)
+stream = ExtResource("6_3f8g3")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="Center/VBox/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Center/VBox/Credits" to="." method="_on_credits_pressed"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cts35dlcti4s5"]
+
+[ext_resource type="Script" path="res://objects/damage_object/Bullet.gd" id="1_k2hee"]
+[ext_resource type="Texture2D" uid="uid://d3jiy2togeuun" path="res://objects/damage_object/bullets_sprites/bullet_01_32x32.png" id="2_qvs04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p3l0l"]
+size = Vector2(8, 28)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_k2hee")
+speed = null
+direction = null
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = -1.5708
+texture = ExtResource("2_qvs04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_p3l0l")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4.17233e-07, -0.5)
+scale = Vector2(0.7, 1.45)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

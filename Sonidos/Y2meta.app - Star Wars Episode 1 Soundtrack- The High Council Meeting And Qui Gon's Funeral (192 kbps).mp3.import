@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://j8qe2t8xeske"
+path="res://.godot/imported/Y2meta.app - Star Wars Episode 1 Soundtrack- The High Council Meeting And Qui Gon's Funeral (192 kbps).mp3-2797debac59ccb7821bcfe80adbe6a6e.mp3str"
+
+[deps]
+
+source_file="res://Sonidos/Y2meta.app - Star Wars Episode 1 Soundtrack- The High Council Meeting And Qui Gon's Funeral (192 kbps).mp3"
+dest_files=["res://.godot/imported/Y2meta.app - Star Wars Episode 1 Soundtrack- The High Council Meeting And Qui Gon's Funeral (192 kbps).mp3-2797debac59ccb7821bcfe80adbe6a6e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

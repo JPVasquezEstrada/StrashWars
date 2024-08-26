@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://k16b574fdhbt"]
+
+[ext_resource type="Script" path="res://objects/Meteorite/Meteorite.gd" id="1_5ij87"]
+[ext_resource type="Texture2D" uid="uid://bgkymak1t7w7r" path="res://objects/Meteorite/Meteorite_sprites/Meteor1.png" id="2_jixol"]
+[ext_resource type="Texture2D" uid="uid://djdhan34yebep" path="res://objects/Meteorite/Meteorite_sprites/Meteor2.png" id="3_ecbnw"]
+[ext_resource type="Texture2D" uid="uid://bs3ei4n3thkjp" path="res://objects/Meteorite/Meteorite_sprites/Meteor3.png" id="4_rkdys"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u127q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jixol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ecbnw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_rkdys")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ayxwc"]
+radius = 23.4094
+
+[node name="Meteorite" type="Area2D"]
+position = Vector2(180, 173)
+script = ExtResource("1_5ij87")
+
+[node name="Sprites" type="AnimatedSprite2D" parent="."]
+position = Vector2(54, 32)
+scale = Vector2(2.6875, 2)
+sprite_frames = SubResource("SpriteFrames_u127q")
+frame_progress = 0.32
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(57, 28)
+shape = SubResource("CircleShape2D_ayxwc")

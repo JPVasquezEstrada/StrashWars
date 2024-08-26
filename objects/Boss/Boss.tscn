@@ -1,0 +1,129 @@
+[gd_scene load_steps=10 format=3 uid="uid://s2wkpv2djjq1"]
+
+[ext_resource type="Texture2D" uid="uid://bueumd67epnhu" path="res://imagenes/naves/RedShips.png" id="1_25p11"]
+[ext_resource type="Script" path="res://objects/Boss/Boss.gd" id="1_al3hx"]
+[ext_resource type="AudioStream" uid="uid://dimbcytnf5cnd" path="res://Sonidos/ExplocionNave.wav" id="2_us0y6"]
+[ext_resource type="AudioStream" uid="uid://ce6prfekx7cns" path="res://Sonidos/alienshoot2.wav" id="3_32en8"]
+[ext_resource type="AudioStream" uid="uid://bqk2vmedxvaqk" path="res://Sonidos/bing1.wav" id="5_te2pv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_22jpc"]
+size = Vector2(84, 117)
+
+[sub_resource type="Animation" id="Animation_t7kmp"]
+resource_name = "BossDestroi"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 0.277392),
+"update": 0,
+"values": [0.0, -12.5664]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3, 3), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wnchs"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.61702, 1.93548)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cq3dn"]
+_data = {
+"BossDestroi": SubResource("Animation_t7kmp"),
+"RESET": SubResource("Animation_wnchs")
+}
+
+[node name="Boss" type="Area2D"]
+script = ExtResource("1_al3hx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(6, 8)
+scale = Vector2(1.61702, 1.93548)
+texture = ExtResource("1_25p11")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(200.025, 195.123, 47.4218, 62.7281)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(9, 9.5)
+shape = SubResource("RectangleShape2D_22jpc")
+
+[node name="BulletSpawn2" type="Marker2D" parent="."]
+position = Vector2(37.2475, 140.247)
+
+[node name="BulletSpawn3" type="Marker2D" parent="."]
+position = Vector2(114, 116)
+rotation = -0.785398
+
+[node name="BulletSpawn4" type="Marker2D" parent="."]
+position = Vector2(140, 60)
+rotation = -0.261799
+
+[node name="BulletSpawn5" type="Marker2D" parent="."]
+position = Vector2(-94.7525, 114.247)
+rotation = 0.523599
+
+[node name="BulletSpawn6" type="Marker2D" parent="."]
+position = Vector2(-133.753, 67.2475)
+rotation = 0.261799
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(-27.7525, 136.247)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(10, 8)
+scale = Vector2(4, 5.85)
+
+[node name="EnemyDead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_us0y6")
+
+[node name="EnemyLaser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_32en8")
+
+[node name="EnemyHit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_te2pv")
+volume_db = -14.0
+
+[node name="AnimationBoss" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_cq3dn")
+}
+
+[connection signal="animation_finished" from="AnimationBoss" to="." method="_on_animation_boss_animation_finished"]

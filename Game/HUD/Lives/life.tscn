@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4lcevkagvap"]
+
+[ext_resource type="Texture2D" uid="uid://dldlc3038u4y" path="res://Game/HUD/Lives/lifeBlue.PNG" id="1_r60wy"]
+
+[node name="Live" type="TextureRect"]
+visible = false
+texture = ExtResource("1_r60wy")
+expand_mode = 3
+stretch_mode = 5

@@ -1,0 +1,8 @@
+res://Game/Levels/Level.tscn
+res://objects/Boss/Boss.tscn
+res://objects/damage_object/Bullet.tscn
+res://objects/Enemy/Enemy.tscn
+res://UI/MainScreens/GameOver/GameOver.tscn
+res://UI/MainScreens/Credits/Credits.tscn
+res://Autoloads/Main.tscn
+res://objects/damage_object/BulletBoss.tscn

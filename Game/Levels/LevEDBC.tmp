@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv77vp8eum0vd"]
+
+[ext_resource type="PackedScene" uid="uid://dtkrlnfduty8j" path="res://Game/Players/Player.tscn" id="1_jajq3"]
+
+[node name="Levels" type="Node2D"]
+
+[node name="BackGround" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(800, 500)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
+[node name="ZOrder" type="Node2D" parent="."]
+position = Vector2(1, 1)
+
+[node name="HUD" type="Control" parent="ZOrder"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LevelMusic" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("1_jajq3")]
+position = Vector2(384, 417)

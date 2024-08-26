@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://b34uuyrxrse85"]
+
+[ext_resource type="Script" path="res://objects/Enemy/Enemy.gd" id="1_6l7e4"]
+[ext_resource type="Texture2D" uid="uid://bueumd67epnhu" path="res://imagenes/naves/RedShips.png" id="2_y2v8f"]
+[ext_resource type="AudioStream" uid="uid://dimbcytnf5cnd" path="res://Sonidos/ExplocionNave.wav" id="3_32lto"]
+[ext_resource type="AudioStream" uid="uid://ce6prfekx7cns" path="res://Sonidos/alienshoot2.wav" id="4_gdmqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6kbq"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_pgewl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wpp5q"]
+resource_name = "destroy"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jpqhd"]
+_data = {
+"RESET": SubResource("Animation_pgewl"),
+"destroy": SubResource("Animation_wpp5q")
+}
+
+[node name="Enemy" type="Area2D"]
+script = ExtResource("1_6l7e4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_y2v8f")
+flip_v = true
+region_enabled = true
+region_rect = Rect2(144.28, 16.0844, 31.3832, 31.8073)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g6kbq")
+
+[node name="Animdestroy" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_jpqhd")
+}
+
+[node name="BulletSpawn" type="Marker2D" parent="."]
+position = Vector2(0, 28)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(2.38419e-07, 1)
+scale = Vector2(1.4, 1.3)
+
+[node name="EnemyDead" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_32lto")
+volume_db = -12.0
+
+[node name="EnemyLaser" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gdmqy")
+volume_db = -14.0
+
+[connection signal="animation_finished" from="Animdestroy" to="." method="_on_animdestroy_animation_finished"]
